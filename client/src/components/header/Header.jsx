@@ -25,7 +25,9 @@ export default function Header ()  {
             <Nav.Link href="#action2">All Books</Nav.Link>
             <Nav.Link href="#">Login</Nav.Link>
             <Nav.Link href="#">Register</Nav.Link>
+            <Nav.Link href="#">Logout</Nav.Link>
           </Nav>
+          <div className="nav-email"> peter@abv.bg</div>
           <Form className="d-flex">
             <Form.Control
               type="search"
