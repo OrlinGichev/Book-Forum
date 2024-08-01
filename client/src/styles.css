@@ -1,7 +1,7 @@
 /* src/styles.css */
 body {
     margin: 0;
-    padding: 0;
+    padding: 8px;
     background-image: url('../public/bookstore.jpg'); /* Път до твоето изображение */
     background-size: cover; /* За да покрива цялата страница */
     background-repeat: no-repeat;

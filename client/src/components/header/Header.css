@@ -1,7 +1,8 @@
 .bg-body-tertiary {
-    height: 100px;
+    height: 75px;
     font-size: 25px;
     font-weight: bold;
+    opacity: 0.8;
 }
 
 .navbar-brand :hover {
