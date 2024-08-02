@@ -1,5 +1,18 @@
 .card-list {
     display: flex;
     justify-content: space-around;
-    align-content: center;
-}
+    flex-wrap: wrap;
+    margin-top: 120px;
+  }
+  
+  .card-item {
+    width: 18rem;
+    height: 30rem;
+    margin-bottom: 20px;
+  }
+
+.card-item img {
+    width: 20%;
+    height: auto;
+    object-fit: cover; 
+  }
