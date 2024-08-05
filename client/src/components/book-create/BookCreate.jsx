@@ -1,34 +1,34 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
-import './CreateBook.css';
+import './BookCreate.css';
 
 export default function BookCreate() {
 
-    const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [genre, setGenre] = useState('');
-  const [img, setImg] = useState('');
-  const [description, setDescription] = useState('');
+//     const [title, setTitle] = useState('');
+//   const [author, setAuthor] = useState('');
+//   const [genre, setGenre] = useState('');
+//   const [img, setImg] = useState('');
+//   const [description, setDescription] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log({ title, author, genre, img, description });
-  };
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+    
+//     console.log({ title, author, genre, img, description });
+//   };
 
     return ( 
 
   
     <Container className="create-book-form">
       <h2 className="text-center mb-4">Create a New Book</h2>
-      <Form onSubmit={handleSubmit}>
+      <Form >
         <Form.Group controlId="formTitle" className="mb-3">
           <Form.Label>Title</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter book title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            // value={title}
+            // onChange={(e) => setTitle(e.target.value)}
             required
           />
         </Form.Group>
@@ -38,8 +38,8 @@ export default function BookCreate() {
           <Form.Control
             type="text"
             placeholder="Enter author's name"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
+            // value={author}
+            // onChange={(e) => setAuthor(e.target.value)}
             required
           />
         </Form.Group>
@@ -49,8 +49,8 @@ export default function BookCreate() {
           <Form.Control
             type="text"
             placeholder="Enter book genre"
-            value={genre}
-            onChange={(e) => setGenre(e.target.value)}
+            // value={genre}
+            // onChange={(e) => setGenre(e.target.value)}
             required
           />
         </Form.Group>
@@ -60,8 +60,8 @@ export default function BookCreate() {
           <Form.Control
             type="url"
             placeholder="Enter image URL"
-            value={img}
-            onChange={(e) => setImg(e.target.value)}
+            // value={img}
+            // onChange={(e) => setImg(e.target.value)}
           />
         </Form.Group>
 
@@ -71,8 +71,8 @@ export default function BookCreate() {
             as="textarea"
             rows={4}
             placeholder="Enter book description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            // value={description}
+            // onChange={(e) => setDescription(e.target.value)}
             required
           />
         </Form.Group>
