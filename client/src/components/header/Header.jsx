@@ -14,7 +14,7 @@ export default function Header ()  {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand  as={Link} to="/">Book Forum</Navbar.Brand>
+        <Navbar.Brand >Book Forum</Navbar.Brand>
         {/* <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll"> */}
           <Nav
