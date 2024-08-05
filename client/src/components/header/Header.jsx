@@ -14,9 +14,9 @@ export default function Header ()  {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand  href="#">Book Forum</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
+        <Navbar.Brand  as={Link} to="/">Book Forum</Navbar.Brand>
+        {/* <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll"> */}
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: '100px' }}
@@ -25,7 +25,7 @@ export default function Header ()  {
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/books">All Books</Nav.Link>
             <Nav.Link as={Link} to="/login">Login</Nav.Link>
-            <Nav.Link as={Link} to="#">Register</Nav.Link>
+            <Nav.Link as={Link} to="/register">Register</Nav.Link>
             <Nav.Link as={Link} to="#">Logout</Nav.Link>
           </Nav>
           <div className="nav-email"> peter@abv.bg</div>
@@ -38,7 +38,7 @@ export default function Header ()  {
             />
             <Button variant="outline-success">Search</Button>
           </Form>
-        </Navbar.Collapse>
+        {/* </Navbar.Collapse> */}
       </Container>
     </Navbar>
   );

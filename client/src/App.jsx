@@ -9,6 +9,7 @@ import Header from "./components/header/Header";
 import BookList from './components/book-list/BookList';
 import Login from './components/login/Login';
 import Home from './components/home/Home';
+import Register from './components/register/Register';
 
 
 
@@ -22,6 +23,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/books" element={<BookList />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
           </Routes>
     </div>
   )
