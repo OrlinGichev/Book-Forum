@@ -46,13 +46,19 @@ export default function BookCreate() {
 
         <Form.Group controlId="formGenre" className="mb-3">
           <Form.Label>Genre</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter book genre"
+          <Form.Select            
             // value={genre}
             // onChange={(e) => setGenre(e.target.value)}
-            required
-          />
+            // required
+          >
+          <option value="">Select a genre</option>
+            <option value="romance">Romance</option>
+            <option value="thriller">Thriller</option>
+            <option value="crime">Crime</option>
+            <option value="adventure">Adventure</option>
+            <option value="history">History</option>
+            <option value="autobiography">Autobiography</option>
+          </Form.Select>
         </Form.Group>
 
         <Form.Group controlId="formImg" className="mb-3">
