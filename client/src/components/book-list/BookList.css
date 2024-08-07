@@ -1,3 +1,11 @@
+h3 {
+  font-family: Arial, sans-serif;
+  color: crimson;
+  font-size: 10rem;
+  padding: 0.2em 1rem;
+}
+
+
 .card-list {
   display: flex;
   justify-content: space-around;
@@ -5,30 +13,4 @@
   margin-top: 120px;
 }
 
-.card-item {
-  width: 18rem;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
 
-.card-item img {
-  width: 45% !important;
-  height: 200px ;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
-  padding-top: 30px;
-}
-
-.card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-
-.card-button {
-  align-self: flex-end;
-}
