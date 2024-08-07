@@ -1,8 +1,13 @@
 // import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { Form, Button, Container } from 'react-bootstrap';
+import * as bookService from '../../services/bookService';
 import './BookCreate.css';
 
 export default function BookCreate() {
+
+  const navigate = useNavigate();
 
 //     const [title, setTitle] = useState('');
 //   const [author, setAuthor] = useState('');
@@ -10,18 +15,26 @@ export default function BookCreate() {
 //   const [img, setImg] = useState('');
 //   const [description, setDescription] = useState('');
 
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
+  const createBookSubmitHandler = async (e) => {
+    e.preventDefault();
     
-//     console.log({ title, author, genre, img, description });
-//   };
+    const bookData = Object.fromEntries( new FormData(e.currentTarget) );
+
+    try {
+      await bookService.create(bookData);
+      navigate('/books');
+      
+  } catch (error) {
+      console.error(error);
+  }
+  };
 
     return ( 
 
   
     <Container className="create-book-form">
       <h2 className="text-center mb-4">Create a New Book</h2>
-      <Form >
+      <Form onSubmit={createBookSubmitHandler}>
         <Form.Group controlId="formTitle" className="mb-3">
           <Form.Label>Title</Form.Label>
           <Form.Control

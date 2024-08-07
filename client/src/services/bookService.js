@@ -1,6 +1,6 @@
 const baseUrl = 'http://localhost:3030/jsonstore';
 
-export const createBook = async (data) => {
+export const create = async (data) => {
     const response = await fetch(`${baseUrl}/books`, {
         method: 'POST',
         headers: { 
