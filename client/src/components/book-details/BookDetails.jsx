@@ -43,81 +43,71 @@ export default function BookDetails() {
         <div className="sidebar-header">
         <h2>Comments</h2>
             <Button variant="primary" className="card-button">
-              Edit
+              Add comment
             </Button>
         </div>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
-        <p>
-          This is some additional information that will be displayed in the
-          sidebar.
-        </p>
+        <section className="comments">
+            <p>
+            &quot;This is some additional information that will be displayed in the
+              sidebar.&quot;
+            </p>
+            <div className="username">Author</div>
+        </section>
+        <section className="comments">
+            <p>
+            &quot;This is some additional information that will be displayed in the
+              sidebar.&quot;
+            </p>
+            <div className="username">Author</div>
+        </section>
+        <section className="comments">
+            <p>
+            &quot;This is some additional information that will be displayed in the
+              sidebar.&quot;
+            </p>
+            <div className="username">Author</div>
+        </section>
+        <section className="comments">
+            <p>
+            &quot;This is some additional information that will be displayed in the
+              sidebar.&quot;
+            </p>
+            <div className="username">Author</div>
+        </section>
+        <section className="comments">
+            <p>
+            &quot;This is some additional information that will be displayed in the
+              sidebar.&quot;
+            </p>
+            <div className="username">Author</div>
+        </section>
+        <section className="comments">
+            <p>
+            &quot;This is some additional information that will be displayed in the
+              sidebar.&quot;
+            </p>
+            <div className="username">Author</div>
+        </section>
+        <section className="comments">
+            <p>
+            &quot;This is some additional information that will be displayed in the
+              sidebar.This is some additional information that will be displayed in the
+              sidebarThis is some additional information that will be displayed in the
+              sidebarThis is some additional information that will be displayed in the
+              sidebarThis is some additional information that will be displayed in the
+              sidebarThis is some additional information that will be displayed in the
+              sidebar&quot;
+            </p>
+            <div className="username">Author</div>
+        </section>
+        <section className="comments">
+            <p>
+            &quot;This is some additional information that will be displayed in the
+              sidebar.&quot;
+            </p>
+            <div className="username">Author</div>
+        </section>
+        
       </aside>
     </div>
   );
