@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -23,7 +24,9 @@ export default function BookListItem({
                 {genre}
               </Card.Text>
             </div>
-            <Button variant="primary" className="card-button">Details</Button>
+            <Link to="/books/:bookId">
+              <Button variant="primary" className="card-button">Details</Button>
+            </Link>
           </Card.Body>
         </Card>
     )

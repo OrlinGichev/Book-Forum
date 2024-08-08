@@ -11,6 +11,7 @@ import Login from './components/login/Login';
 import Home from './components/home/Home';
 import Register from './components/register/Register';
 import BookCreate from './components/book-create/BookCreate';
+import BookDetails from './components/book-details/BookDetails';
 
 
 
@@ -24,6 +25,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/books" element={<BookList />} />
               <Route path="/book-create" element={<BookCreate />} />
+              <Route path="/books/:bookId" element={<BookDetails />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
           </Routes>
