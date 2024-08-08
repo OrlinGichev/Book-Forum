@@ -34,6 +34,18 @@
   padding: 1rem;
 }
 
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+ 
+}
+
 .card-button {
   align-self: flex-end;
+  width: 100px;
+}
+
+.delete {
+  background-color: crimson;
 }

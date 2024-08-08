@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
@@ -6,12 +7,10 @@ import Card from "react-bootstrap/Card";
 import "./BookListItem.css";
 
 export default function BookListItem({
-    // eslint-disable-next-line react/prop-types
     title,
-    // eslint-disable-next-line react/prop-types
     img,
-    // eslint-disable-next-line react/prop-types
-    genre
+    genre,
+    _id,
 }) {
 
     return (
@@ -24,7 +23,7 @@ export default function BookListItem({
                 {genre}
               </Card.Text>
             </div>
-            <Link to="/books/:bookId">
+            <Link to={`/books/${_id}`}>
               <Button variant="primary" className="card-button">Details</Button>
             </Link>
           </Card.Body>
