@@ -19,7 +19,7 @@ export default function Home() {
         </Card.Body>
         </Card>
         <Card  className="card-item">
-        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Img variant="top" src="../../../public/books.02.jpg" />
         <Card.Body >
           <Card.Title>Card Title</Card.Title>
           <Card.Text>
@@ -30,7 +30,7 @@ export default function Home() {
         </Card.Body>
         </Card>
         <Card  className="card-item">
-        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Img variant="top" src="../../../public/books.03.jpg" />
         <Card.Body >
           <Card.Title>Card Title</Card.Title>
           <Card.Text>

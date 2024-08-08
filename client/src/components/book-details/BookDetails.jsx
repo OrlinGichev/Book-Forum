@@ -51,42 +51,42 @@ export default function BookDetails() {
             &quot;This is some additional information that will be displayed in the
               sidebar.&quot;
             </p>
-            <div className="username">Author</div>
+            <div className="username">Username</div>
         </section>
         <section className="comments">
             <p>
             &quot;This is some additional information that will be displayed in the
               sidebar.&quot;
             </p>
-            <div className="username">Author</div>
+            <div className="username">Username</div>
         </section>
         <section className="comments">
             <p>
             &quot;This is some additional information that will be displayed in the
               sidebar.&quot;
             </p>
-            <div className="username">Author</div>
+            <div className="username">Username</div>
         </section>
         <section className="comments">
             <p>
             &quot;This is some additional information that will be displayed in the
               sidebar.&quot;
             </p>
-            <div className="username">Author</div>
+            <div className="username">Username</div>
         </section>
         <section className="comments">
             <p>
             &quot;This is some additional information that will be displayed in the
               sidebar.&quot;
             </p>
-            <div className="username">Author</div>
+            <div className="username">Username</div>
         </section>
         <section className="comments">
             <p>
             &quot;This is some additional information that will be displayed in the
               sidebar.&quot;
             </p>
-            <div className="username">Author</div>
+            <div className="username">Username</div>
         </section>
         <section className="comments">
             <p>
@@ -98,14 +98,14 @@ export default function BookDetails() {
               sidebarThis is some additional information that will be displayed in the
               sidebar&quot;
             </p>
-            <div className="username">Author</div>
+            <div className="username">Username</div>
         </section>
         <section className="comments">
             <p>
             &quot;This is some additional information that will be displayed in the
               sidebar.&quot;
             </p>
-            <div className="username">Author</div>
+            <div className="username">Username</div>
         </section>
         
       </aside>
