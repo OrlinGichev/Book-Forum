@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 import * as bookService from "../../services/bookService";
+import * as commentService from "../../services/commentService";
 
 import "./BookDetails.css";
 import { useEffect, useState } from "react";
@@ -15,6 +16,20 @@ export default function BookDetails() {
   useEffect(() => {
     bookService.getOne(bookId).then(setBook);
   }, [bookId]);
+
+  const addCommentHandler = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+
+    const newComment = await commentService.create(
+      bookId,
+      "User",
+      formData.get("comment")
+    );
+
+    console.log(newComment);
+  };
 
   return (
     <div className="main-container">
@@ -40,74 +55,79 @@ export default function BookDetails() {
         </Card>
       </div>
       <aside className="sidebar">
-        <div className="sidebar-header">
-        <h2>Comments</h2>
-            <Button variant="primary" className="card-button">
-              Add comment
-            </Button>
-        </div>
+        <form className="sidebar-header" onSubmit={addCommentHandler}>
+          <h2>Comments</h2>
+          <input
+            type="text"
+            className="add-comment"
+            placeholder="Enter your comment"
+            required
+          />
+          <Button variant="primary" className="card-button">
+            Add comment
+          </Button>
+        </form>
         <section className="comments">
-            <p>
-            &quot;This is some additional information that will be displayed in the
-              sidebar.&quot;
-            </p>
-            <div className="username">Username</div>
+          <p>
+            &quot;This is some additional information that will be displayed in
+            the sidebar.&quot;
+          </p>
+          <div className="username">Username</div>
         </section>
         <section className="comments">
-            <p>
-            &quot;This is some additional information that will be displayed in the
-              sidebar.&quot;
-            </p>
-            <div className="username">Username</div>
+          <p>
+            &quot;This is some additional information that will be displayed in
+            the sidebar.&quot;
+          </p>
+          <div className="username">Username</div>
         </section>
         <section className="comments">
-            <p>
-            &quot;This is some additional information that will be displayed in the
-              sidebar.&quot;
-            </p>
-            <div className="username">Username</div>
+          <p>
+            &quot;This is some additional information that will be displayed in
+            the sidebar.&quot;
+          </p>
+          <div className="username">Username</div>
         </section>
         <section className="comments">
-            <p>
-            &quot;This is some additional information that will be displayed in the
-              sidebar.&quot;
-            </p>
-            <div className="username">Username</div>
+          <p>
+            &quot;This is some additional information that will be displayed in
+            the sidebar.&quot;
+          </p>
+          <div className="username">Username</div>
         </section>
         <section className="comments">
-            <p>
-            &quot;This is some additional information that will be displayed in the
-              sidebar.&quot;
-            </p>
-            <div className="username">Username</div>
+          <p>
+            &quot;This is some additional information that will be displayed in
+            the sidebar.&quot;
+          </p>
+          <div className="username">Username</div>
         </section>
         <section className="comments">
-            <p>
-            &quot;This is some additional information that will be displayed in the
-              sidebar.&quot;
-            </p>
-            <div className="username">Username</div>
+          <p>
+            &quot;This is some additional information that will be displayed in
+            the sidebar.&quot;
+          </p>
+          <div className="username">Username</div>
         </section>
         <section className="comments">
-            <p>
-            &quot;This is some additional information that will be displayed in the
-              sidebar.This is some additional information that will be displayed in the
-              sidebarThis is some additional information that will be displayed in the
-              sidebarThis is some additional information that will be displayed in the
-              sidebarThis is some additional information that will be displayed in the
-              sidebarThis is some additional information that will be displayed in the
-              sidebar&quot;
-            </p>
-            <div className="username">Username</div>
+          <p>
+            &quot;This is some additional information that will be displayed in
+            the sidebar.This is some additional information that will be
+            displayed in the sidebarThis is some additional information that
+            will be displayed in the sidebarThis is some additional information
+            that will be displayed in the sidebarThis is some additional
+            information that will be displayed in the sidebarThis is some
+            additional information that will be displayed in the sidebar&quot;
+          </p>
+          <div className="username">Username</div>
         </section>
         <section className="comments">
-            <p>
-            &quot;This is some additional information that will be displayed in the
-              sidebar.&quot;
-            </p>
-            <div className="username">Username</div>
+          <p>
+            &quot;This is some additional information that will be displayed in
+            the sidebar.&quot;
+          </p>
+          <div className="username">Username</div>
         </section>
-        
       </aside>
     </div>
   );
