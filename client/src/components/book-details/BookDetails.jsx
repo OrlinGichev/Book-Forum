@@ -11,10 +11,13 @@ import { useEffect, useState } from "react";
 
 export default function BookDetails() {
   const [book, setBook] = useState({});
+  const [comments, setComments] = useState([]);
   const { bookId } = useParams();
 
   useEffect(() => {
     bookService.getOne(bookId).then(setBook);
+
+    commentService.getAll().then(setComments);
   }, [bookId]);
 
   const addCommentHandler = async (e) => {
@@ -61,73 +64,25 @@ export default function BookDetails() {
             type="text"
             className="add-comment"
             placeholder="Enter your comment"
+            name="comment"
             required
           />
-          <Button variant="primary" className="card-button">
+          <Button variant="primary" className="card-button" type="submit">
             Add comment
           </Button>
         </form>
-        <section className="comments">
-          <p>
-            &quot;This is some additional information that will be displayed in
-            the sidebar.&quot;
-          </p>
-          <div className="username">Username</div>
-        </section>
-        <section className="comments">
-          <p>
-            &quot;This is some additional information that will be displayed in
-            the sidebar.&quot;
-          </p>
-          <div className="username">Username</div>
-        </section>
-        <section className="comments">
-          <p>
-            &quot;This is some additional information that will be displayed in
-            the sidebar.&quot;
-          </p>
-          <div className="username">Username</div>
-        </section>
-        <section className="comments">
-          <p>
-            &quot;This is some additional information that will be displayed in
-            the sidebar.&quot;
-          </p>
-          <div className="username">Username</div>
-        </section>
-        <section className="comments">
-          <p>
-            &quot;This is some additional information that will be displayed in
-            the sidebar.&quot;
-          </p>
-          <div className="username">Username</div>
-        </section>
-        <section className="comments">
-          <p>
-            &quot;This is some additional information that will be displayed in
-            the sidebar.&quot;
-          </p>
-          <div className="username">Username</div>
-        </section>
-        <section className="comments">
-          <p>
-            &quot;This is some additional information that will be displayed in
-            the sidebar.This is some additional information that will be
-            displayed in the sidebarThis is some additional information that
-            will be displayed in the sidebarThis is some additional information
-            that will be displayed in the sidebarThis is some additional
-            information that will be displayed in the sidebarThis is some
-            additional information that will be displayed in the sidebar&quot;
-          </p>
-          <div className="username">Username</div>
-        </section>
-        <section className="comments">
-          <p>
-            &quot;This is some additional information that will be displayed in
-            the sidebar.&quot;
-          </p>
-          <div className="username">Username</div>
-        </section>
+        <ul>
+            {comments.map(comment => (
+                // eslint-disable-next-line react/jsx-key
+                <section className="comments">
+                <p>
+                  &quot;{comment.text}&quot;
+                </p>
+                <div className="username">User</div>
+            </section> 
+            ))}
+        </ul>
+        { comments.length === 0 && <h3 className="no-comment">No comments yet ! </h3> } 
       </aside>
     </div>
   );

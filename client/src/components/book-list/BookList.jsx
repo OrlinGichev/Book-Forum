@@ -16,8 +16,6 @@ export default function BookList() {
       .then( result => setBooks(result));
   }, []);
 
-  console.log(books);
-
   return (
     <div className="card-list">
       
