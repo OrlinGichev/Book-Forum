@@ -31,7 +31,7 @@ export default function BookDetails() {
       formData.get("comment")
     );
 
-    console.log(newComment);
+    setComments(state => [...state, newComment]);
   };
 
   return (
@@ -74,7 +74,7 @@ export default function BookDetails() {
         <ul>
             {comments.map(comment => (
                 // eslint-disable-next-line react/jsx-key
-                <section className="comments">
+                <section className="comments" key={comment._id}>
                 <p>
                   &quot;{comment.text}&quot;
                 </p>
