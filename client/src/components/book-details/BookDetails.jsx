@@ -17,7 +17,7 @@ export default function BookDetails() {
   useEffect(() => {
     bookService.getOne(bookId).then(setBook);
 
-    commentService.getAll().then(setComments);
+    commentService.getAll(bookId).then(setComments);
   }, [bookId]);
 
   const addCommentHandler = async (e) => {
@@ -82,7 +82,7 @@ export default function BookDetails() {
             </section> 
             ))}
         </ul>
-        { comments.length === 0 && <h3 className="no-comment">No comments yet ! </h3> } 
+        { comments.length === 0 && <h4 className="no-comment">No comments yet ! </h4> } 
       </aside>
     </div>
   );
