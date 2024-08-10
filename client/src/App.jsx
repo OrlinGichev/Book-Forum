@@ -18,6 +18,7 @@ import { useState } from "react";
 import AuthContext from "./contexts/authContext";
 import Logout from "./components/logout/Logout";
 import BookEdit from "./components/book-edit/BookEdit";
+import AuthGuard from "./components/guards/AuthGuard";
 
 function App() {
 
@@ -78,12 +79,15 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/books" element={<BookList />} />
-          <Route path="/book-create" element={<BookCreate />} />
-          <Route path="/books/:bookId" element={<BookDetails />} />
-          <Route path="/books/:bookId/edit" element={<BookEdit />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/logout" element={<Logout />} />
+          <Route path="/books/:bookId" element={<BookDetails />} />
+
+          <Route element={<AuthGuard />} >
+              <Route path="/book-create" element={<BookCreate />} />
+              <Route path="/books/:bookId/edit" element={<BookEdit />} />
+              <Route path="/logout" element={<Logout />} />
+          </Route>
         </Routes>
       </div>
     </AuthContext.Provider>
