@@ -1,13 +1,12 @@
 /* src/styles.css */
 body {
-    margin: 0;
-    padding: 8px;
+    /* margin: 0;
+    padding: 8px; */
     background-image: url('../public/bookstore.jpg'); /* Път до твоето изображение */
-    background-size: cover; /* За да покрива цялата страница */
-    background-repeat: no-repeat;
-    background-position: center center; /* Центриране на изображението */
-    height: 100vh; /* Височина на цялата видима част на страницата */
-    width: 100vw; /* Ширина на цялата видима част на страницата */
-    overflow: hidden; /* Скриване на скрол ленти, ако има такива */
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
   

@@ -45,8 +45,7 @@ export default function BookCreate() {
   };
 
     return ( 
-
-  
+ 
     <Container className="create-book-form">
       <h2 className="text-center mb-4">Create a New Book</h2>
       <Form onSubmit={createBookSubmitHandler}>
