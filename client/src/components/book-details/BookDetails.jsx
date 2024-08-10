@@ -72,13 +72,13 @@ export default function BookDetails() {
           </Button>
         </form>
         <ul>
-            {comments.map(comment => (
+            {comments.map(({_id, text, owner: { email }}) => (
                 // eslint-disable-next-line react/jsx-key
-                <section className="comments" key={comment._id}>
+                <section className="comments" key={_id}>
                 <p>
-                  &quot;{comment.text}&quot;
+                  &quot;{text}&quot;
                 </p>
-                <div className="username">{comment._ownerId}</div>
+                <div className="username">{email}</div>
             </section> 
             ))}
         </ul>

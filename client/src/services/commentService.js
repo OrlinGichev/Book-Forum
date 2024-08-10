@@ -7,6 +7,7 @@ export const getAll = async (bookId) => {
 
     const query = new URLSearchParams({
         where: `bookId="${bookId}"`,
+        load: `owner=_ownerId:users`
     });
     const result = await request.get(`${baseUrl}?${query}`);
     
