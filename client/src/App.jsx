@@ -16,16 +16,23 @@ import BookCreate from "./components/book-create/BookCreate";
 import BookDetails from "./components/book-details/BookDetails";
 import { useState } from "react";
 import AuthContext from "./contexts/authContext";
+import Logout from "./components/logout/Logout";
 
 function App() {
 
   const navigate = useNavigate();
-  const [auth, setAuth] = useState({});
+  const [auth, setAuth] = useState(() => {
+    localStorage.removeItem('accessToken');
+
+    return {};
+  });
 
   const loginSubmitHandler = async (values) => {
       const result = await authService.login(values.email, values.password);
 
       setAuth(result);
+
+      localStorage.setItem('accessToken', result.accessToken);
 
       navigate('/');
   };
@@ -33,22 +40,34 @@ function App() {
   const registerSubmitHandler = async (values) => {
     try {
       const result = await authService.register(values.email,values.password);
-      console.log("Registration result:", result);
+
       setAuth(result);
   
-        navigate('/');
+      localStorage.setItem('accessToken', result.accessToken);
+
+      navigate('/');
 
     }catch (err) {
       console.error("Registration failed", err);
     }
   };
 
+  const logoutHandler = () => {
+
+    setAuth({});
+
+    localStorage.removeItem('accessToken');
+
+    navigate('/');
+  };
+
   const dataContext = {
     loginSubmitHandler,
     registerSubmitHandler,
+    logoutHandler,
     username: auth.username || auth.email,
     email: auth.email,
-    isAuthenticated: !!auth.email
+    isAuthenticated: !!auth.accessToken
   }
 
   return (
@@ -62,6 +81,7 @@ function App() {
           <Route path="/books/:bookId" element={<BookDetails />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       </div>
     </AuthContext.Provider>

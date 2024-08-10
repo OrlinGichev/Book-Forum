@@ -31,7 +31,7 @@ export default function Header() {
           {isAuthenticated && (
             <div id="user">
               <Nav.Link as={Link} to="/book-create">Create Book</Nav.Link>
-              <Nav.Link as={Link} to="#">Logout</Nav.Link>
+              <Nav.Link as={Link} to="/logout">Logout</Nav.Link>
             </div>
           )}
 
