@@ -7,10 +7,11 @@ import * as bookService from "../../services/bookService";
 import * as commentService from "../../services/commentService";
 
 import "./BookDetails.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import AuthContext from "../../contexts/authContext";
 
 export default function BookDetails() {
-
+  const { email } = useContext(AuthContext)
   const [book, setBook] = useState({});
   const [comments, setComments] = useState([]);
   const { bookId } = useParams();
@@ -31,7 +32,7 @@ export default function BookDetails() {
       formData.get("comment")
     );
     console.log(newComment);
-    setComments(state => [...state, newComment]);
+    setComments(state => [...state, { newComment, author: { email}}]);
   };
 
   return (
@@ -72,13 +73,13 @@ export default function BookDetails() {
           </Button>
         </form>
         <ul>
-            {comments.map(({_id, text, owner: { email }}) => (
+            {comments.map(({_id, text, owner}) => (
                 // eslint-disable-next-line react/jsx-key
-                <section className="comments" key={_id}>
+            <section className="comments" key={_id}>
                 <p>
                   &quot;{text}&quot;
                 </p>
-                <div className="username">{email}</div>
+                <div className="username">{owner?.email}</div>
             </section> 
             ))}
         </ul>
