@@ -3,10 +3,16 @@ import { Link } from "react-router-dom";
 import "./Login.css";
 import useForm from "../../hooks/useForm";
 
-export default function Login() {
-  const { value, onChange, onSubmit } = useForm({
-    email: '',
-    password: '',
+const LoginFormKeys = {
+    Email: 'email',
+    Password: 'password',
+};
+
+export default function Login({ loginSubmitHandler }) {
+
+  const { values, onChange, onSubmit } = useForm(loginSubmitHandler,{
+    [LoginFormKeys.Email]: '',
+    [LoginFormKeys.Password]: '',
   });
 
   return (
@@ -20,12 +26,12 @@ export default function Login() {
           <input
             type="email"
             className="form-control"
-            name="email"
+            name={LoginFormKeys.Email}
             id="email"
             placeholder="Enter your email"
             required
             onChange={onChange}
-            value={value.email}
+            value={values[LoginFormKeys.Email]}
           />
         </div>
         <div className="mb-3">
@@ -35,12 +41,12 @@ export default function Login() {
           <input
             type="password"
             className="form-control"
-            name="password"
+            name={LoginFormKeys.Password}
             id="password"
             placeholder="Enter your password"
             required
             onChange={onChange}
-            value={value.password}
+            value={values[LoginFormKeys.Password]}
           />
         </div>
         <button type="submit" className="btn btn-primary w-100">

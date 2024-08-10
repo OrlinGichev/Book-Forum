@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function useForm (sumbitHandler, initialValues) {
+export default function useForm (submitHandler, initialValues) {
 
     const [ values, setValues ] = useState(initialValues);
 
@@ -14,7 +14,7 @@ export default function useForm (sumbitHandler, initialValues) {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        sumbitHandler(values)
+        submitHandler(values)
     };
 
     return {
