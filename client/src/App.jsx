@@ -30,8 +30,13 @@ function App() {
       navigate('/');
   };
 
+  const registerSubmitHandler = async (values) => {
+    console.log(values);
+  };
+
   const dataContext = {
     loginSubmitHandler,
+    registerSubmitHandler,
     username: auth.username,
     email: auth.email,
     isAuthenticated: !!auth.email
