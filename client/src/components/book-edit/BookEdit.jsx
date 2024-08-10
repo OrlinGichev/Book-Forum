@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { Form, Button, Container } from 'react-bootstrap';
 
@@ -8,6 +8,7 @@ import './BookEdit.css';
 
 export default function BookEdit() {
 
+    const navigate = useNavigate();
     const { bookId } = useParams();
     const [book, setBook] = useState({
         title: '',
@@ -32,6 +33,8 @@ export default function BookEdit() {
 
             try {
                 await bookService.edit(bookId, values);
+                navigate('/books')
+
             } catch (error) {
                 console.log(error);
             }
@@ -115,7 +118,7 @@ export default function BookEdit() {
           </Form.Group>
   
           <Button variant="primary" type="submit">
-            Create Book
+            Save Book
           </Button>
         </Form>
       </Container>
