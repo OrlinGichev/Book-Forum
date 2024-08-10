@@ -63,3 +63,14 @@
     font-style: italic;
     font-weight: 700;
   }
+
+
+  .add-comment{
+    margin: 10px;
+    line-height: 30px;
+  }
+
+  #isAuthenticates {
+  display: flex;
+  flex-direction: column;
+}
