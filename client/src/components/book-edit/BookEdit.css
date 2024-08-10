@@ -1,0 +1,19 @@
+.create-book-form {
+    max-width: 500px;
+    margin: auto;
+    padding: 1rem;
+    margin-top: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+  }
+  
+  .create-book-form h2 {
+    margin-bottom: 2rem;
+  }
+  
+  .create-book-form .form-control {
+    margin-bottom: 1rem;
+  }
+  

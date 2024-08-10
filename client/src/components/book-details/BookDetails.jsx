@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -48,7 +48,7 @@ export default function BookDetails() {
               <Card.Text>{book.description}</Card.Text>
             </div>
             <div className="button">
-              <Button variant="primary" className="card-button edit">
+              <Button as={Link} to={`/books/${bookId}/edit`} variant="primary" className="card-button edit">
                 Edit
               </Button>
               <Button variant="primary" className="card-button delete">

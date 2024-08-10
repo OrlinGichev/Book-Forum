@@ -16,11 +16,7 @@ export default function BookCreate() {
     img: '',
     description: ''
   })
-//     const [title, setTitle] = useState('');
-//   const [author, setAuthor] = useState('');
-//   const [genre, setGenre] = useState('');
-//   const [img, setImg] = useState('');
-//   const [description, setDescription] = useState('');
+
 
   const changeHandler = (e) => {
     const { name, value } = e.target;

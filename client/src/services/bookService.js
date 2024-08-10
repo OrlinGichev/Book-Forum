@@ -4,7 +4,7 @@ const baseUrl = 'http://localhost:3030/data/books';
 
 export const getOne = async (bookId) => {
     const result = await request.get(`${baseUrl}/${bookId}`);
-    console.log(result);
+
     return result;
 }
 
@@ -16,6 +16,13 @@ export const getAll = async () => {
 
 export const create = async (data) => {
        const result = await request.post(baseUrl, data);
+
+    return result;
+}
+
+export const edit = async (bookId, bookData) => {
+
+    const result = await request.put(`${baseUrl}/${bookId}`, bookData);	
 
     return result;
 }

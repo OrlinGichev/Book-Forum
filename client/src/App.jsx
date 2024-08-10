@@ -17,6 +17,7 @@ import BookDetails from "./components/book-details/BookDetails";
 import { useState } from "react";
 import AuthContext from "./contexts/authContext";
 import Logout from "./components/logout/Logout";
+import BookEdit from "./components/book-edit/BookEdit";
 
 function App() {
 
@@ -79,6 +80,7 @@ function App() {
           <Route path="/books" element={<BookList />} />
           <Route path="/book-create" element={<BookCreate />} />
           <Route path="/books/:bookId" element={<BookDetails />} />
+          <Route path="/books/:bookId/edit" element={<BookEdit />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/logout" element={<Logout />} />
