@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
 // import React from 'react';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./styles.css";
+
+import * as authService from "./services/authService";
 
 import Header from "./components/header/Header";
 import BookList from "./components/book-list/BookList";
@@ -16,10 +18,16 @@ import { useState } from "react";
 import AuthContext from "./contexts/authContext";
 
 function App() {
+
+  const navigate = useNavigate();
   const [auth, setAuth] = useState({});
 
-  const loginSubmitHandler = (values) => {
-    console.log(values);
+  const loginSubmitHandler = async (values) => {
+      const result = await authService.login(values.email, values.password);
+
+      setAuth(result);
+
+      navigate('/');
   };
 
   return (
