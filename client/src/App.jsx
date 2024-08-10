@@ -30,8 +30,15 @@ function App() {
       navigate('/');
   };
 
+  const dataContext = {
+    loginSubmitHandler,
+    username: auth.username,
+    email: auth.email,
+    isAuthenticated: !!auth.email
+  }
+
   return (
-    <AuthContext.Provider value={{ loginSubmitHandler }}>
+    <AuthContext.Provider value={dataContext}>
       <div id="app">
         <Header />
         <Routes>

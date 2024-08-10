@@ -20,6 +20,14 @@
 
 }
 
+#guest, #user{
+    display: flex;
+}
+
+/* #user {
+    display: flex;
+} */
+
 .nav-email{
     margin: 70px;
 }
