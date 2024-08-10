@@ -31,13 +31,22 @@ function App() {
   };
 
   const registerSubmitHandler = async (values) => {
-    console.log(values);
+    try {
+      const result = await authService.register(values.email,values.password);
+      console.log("Registration result:", result);
+      setAuth(result);
+  
+        navigate('/');
+
+    }catch (err) {
+      console.error("Registration failed", err);
+    }
   };
 
   const dataContext = {
     loginSubmitHandler,
     registerSubmitHandler,
-    username: auth.username,
+    username: auth.username || auth.email,
     email: auth.email,
     isAuthenticated: !!auth.email
   }
