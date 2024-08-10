@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -15,6 +15,7 @@ export default function BookDetails() {
   const { email, userId, isAuthenticated } = useContext(AuthContext)
   console.log(`UserId ${userId}`);
 
+  const navigate = useNavigate();
   const [book, setBook] = useState({});
   const [comments, setComments] = useState([]);
   const { bookId } = useParams();
@@ -26,6 +27,17 @@ export default function BookDetails() {
     ;
     commentService.getAll(bookId).then(setComments);
   }, [bookId]);
+
+  const deleteButtonClickHandler = async () => {
+
+    const hasConfirmed = confirm(`Are you sure you want to delete ${book.title} ?`);	
+
+    if (hasConfirmed) {
+        await bookService.remove(bookId);
+
+        navigate('/books');
+    }
+  }
 
   const addCommentHandler = async (e) => {
     e.preventDefault();
@@ -58,7 +70,7 @@ export default function BookDetails() {
                   <Button as={Link} to={`/books/${bookId}/edit`} variant="primary" className="card-button edit">
                     Edit
                   </Button>
-                  <Button variant="primary" className="card-button delete">
+                  <Button variant="primary" className="card-button delete" onClick={deleteButtonClickHandler}>
                     Delete
                   </Button>
                 </div>
