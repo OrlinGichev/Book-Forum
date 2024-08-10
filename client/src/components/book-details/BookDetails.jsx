@@ -10,6 +10,7 @@ import "./BookDetails.css";
 import { useEffect, useState } from "react";
 
 export default function BookDetails() {
+
   const [book, setBook] = useState({});
   const [comments, setComments] = useState([]);
   const { bookId } = useParams();
@@ -27,10 +28,9 @@ export default function BookDetails() {
 
     const newComment = await commentService.create(
       bookId,
-      "User",
       formData.get("comment")
     );
-
+    console.log(newComment);
     setComments(state => [...state, newComment]);
   };
 
@@ -78,7 +78,7 @@ export default function BookDetails() {
                 <p>
                   &quot;{comment.text}&quot;
                 </p>
-                <div className="username">User</div>
+                <div className="username">{comment._ownerId}</div>
             </section> 
             ))}
         </ul>
