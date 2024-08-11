@@ -15,7 +15,7 @@ import Register from "./components/register/Register";
 import BookCreate from "./components/book-create/BookCreate";
 import BookDetails from "./components/book-details/BookDetails";
 import { useState } from "react";
-import AuthContext from "./contexts/authContext";
+import {AuthProvider} from "./contexts/authContext";
 import Logout from "./components/logout/Logout";
 import BookEdit from "./components/book-edit/BookEdit";
 import AuthGuard from "./components/guards/AuthGuard";
@@ -74,7 +74,7 @@ function App() {
   }
 
   return (
-    <AuthContext.Provider value={dataContext}>
+    <AuthProvider value={dataContext}>
       <div id="app">
         <Header />
         <Routes>
@@ -91,7 +91,7 @@ function App() {
           </Route>
         </Routes>
       </div>
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 }
 
