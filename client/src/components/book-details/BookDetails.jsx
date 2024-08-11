@@ -23,8 +23,7 @@ export default function BookDetails() {
 
   useEffect(() => {
     bookService.getOne(bookId).then(setBook);
-    console.log(`BookOwnerId ${book._ownerId}`)
-    ;
+    
     commentService.getAll(bookId).then(setComments);
   }, [bookId]);
 
@@ -48,7 +47,7 @@ export default function BookDetails() {
       bookId,
       formData.get("comment")
     );
-    console.log(newComment);
+
     setComments(state => [...state, { newComment, author: { email}}]);
   };
 

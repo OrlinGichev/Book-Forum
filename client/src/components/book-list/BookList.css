@@ -1,7 +1,9 @@
 h3 {
   font-family: Arial, sans-serif;
-  color: crimson;
-  font-size: 10rem;
+  color: rgb(15, 14, 14);
+  background-color: whitesmoke;
+  border-radius: 8px;
+  font-size: 6rem;
   padding: 0.2em 1rem;
 }
 

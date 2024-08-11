@@ -11,7 +11,7 @@ export const getOne = async (bookId) => {
 export const getAll = async () => {
     const result = await request.get(baseUrl);
 
-    return Object.values(result);
+    return result;
 };
 
 export const create = async (data) => {
