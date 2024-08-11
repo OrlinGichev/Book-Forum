@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-// import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -12,6 +12,8 @@ import Home from "./components/home/Home";
 import Register from "./components/register/Register";
 import BookCreate from "./components/book-create/BookCreate";
 import BookDetails from "./components/book-details/BookDetails";
+import SearchBooks from './components/header/search-books/SearchBooks';
+
 
 import {AuthProvider} from "./contexts/authContext";
 import Logout from "./components/logout/Logout";
@@ -19,15 +21,21 @@ import BookEdit from "./components/book-edit/BookEdit";
 import AuthGuard from "./components/guards/AuthGuard";
 
 function App() {
+  const [searchBooks, setSearchBooks] = useState([]);
+  const [showSearchResults, setShowSearchResults] = useState(false);
 
+  const handleSearch = (books) => {
+      setSearchBooks(books);
+      setShowSearchResults(true); // Показваме резултатите от търсенето
+  };
   
 
   return (
     <AuthProvider>
       <div id="app">
-        <Header />
+        <Header onSearch={handleSearch} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={showSearchResults ? <SearchBooks books={searchBooks} /> : <Home />}/>
           <Route path="/books" element={<BookList />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

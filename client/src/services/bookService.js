@@ -39,3 +39,22 @@ export const edit = async (bookId, bookData) => {
 }
 
 export const remove = async (bookId) => request.remove(`${baseUrl}/${bookId}`);
+
+export const searchTitle = async (text) => {
+   
+    const query = new URLSearchParams({
+        where: `title LIKE "${text}"`
+    });
+
+    try {
+    
+        const result = await request.get(`${baseUrl}?${query.toString().replace(/\+/g, '%20')}`);
+        return result;
+    } catch (error) {
+        console.error("Error fetching search results:", error);
+        throw error;
+    }
+};
+
+
+
