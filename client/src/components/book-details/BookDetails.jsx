@@ -48,7 +48,12 @@ export default function BookDetails() {
       formData.get("comment")
     );
 
-    setComments(state => [...state, { newComment, author: { email}}]);
+    const commentToAdd = {
+      ...newComment,
+      owner: { email }
+    }
+
+    setComments(state => [...state, commentToAdd]);
   };
 
   return (
