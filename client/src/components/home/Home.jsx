@@ -1,5 +1,3 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import "./Home.css";
 import * as bookService from '../../services/bookService';
 import { useEffect, useState } from 'react';
@@ -17,10 +15,10 @@ export default function Home() {
 
     return (
         <div className="card-list">
-          <h2>Latest Book</h2>
-          {latestBook.map(book => <LatestBook key={book._id}{...book} />)}
+          <h2 className="latest-book">Latest Book</h2>
+              {latestBook.map(book => <LatestBook key={book._id}{...book} />)}
 
-          { latestBook.length === 0 && <h3 className="no-books">No books yet ! </h3> }
+              { latestBook.length === 0 && <h3 className="no-books">No books yet ! </h3> }
         </div>
         
     )

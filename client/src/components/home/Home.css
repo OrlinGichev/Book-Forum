@@ -16,3 +16,8 @@
     height: auto;
     object-fit: cover; 
   }
+
+.latest-book{
+  font-size: 24px;
+  color: white;
+}
