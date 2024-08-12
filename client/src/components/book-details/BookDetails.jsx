@@ -18,6 +18,7 @@ export default function BookDetails() {
   const navigate = useNavigate();
   const [book, setBook] = useState({});
   const [comments, setComments] = useState([]);
+  const [comment, setComment] = useState('');
   const { bookId } = useParams();
  
 
@@ -43,10 +44,7 @@ export default function BookDetails() {
 
     const formData = new FormData(e.currentTarget);
 
-    const newComment = await commentService.create(
-      bookId,
-      formData.get("comment")
-    );
+    const newComment = await commentService.create(bookId, comment);
 
     const commentToAdd = {
       ...newComment,
@@ -54,6 +52,8 @@ export default function BookDetails() {
     }
 
     setComments(state => [...state, commentToAdd]);
+
+    setComment('');
   };
 
   return (
@@ -92,7 +92,9 @@ export default function BookDetails() {
                     type="text"
                     className="add-comment"
                     placeholder="Enter your comment"
+                    value={comment}
                     name="comment"
+                    onChange={(e) => setComment(e.target.value)}
                     required
                   />
                   <Button variant="primary" className="card-button" type="submit">
