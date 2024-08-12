@@ -1,41 +1,55 @@
 .search-results {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: 120px;
-  }
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центриране на заглавието и книгите в средата на контейнера */
+ 
+}
+
+.search-heading-container {
+  width: 50%; /* Размер на контейнера с надписа */
+  text-align: center; /* Центриране на текста вътре в контейнера */
+  margin-bottom: 25px; /* Разстояние под заглавието */
+
+}
+
+.search-heading {
+  color: black;
+  background-color: rgb(210, 208, 208);
+  font-size: 35px;
+  font-weight: 700px;
+  opacity: 80%;
+}
+
+.card-list {
+  display: flex;
+  justify-content: center; /* Центриране на картите в средата на реда */
+  flex-wrap: wrap; /* Автоматично пренасяне на картите на нов ред, ако няма място */
+  gap: 20px; /* Разстояние между картите */
+  margin-top: 10px;
+}
 
 .card-item {
-    width: 18rem;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .card-item img {
-    width: 45% !important;
-    height: 200px ;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto;
-    padding-top: 30px;
-  }
-  
-  .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-  }
-  
-  .card-button {
-    align-self: flex-end;
-  }
-  
-  .search-heading{
-    color: black;
-    background-color: white;
-    font-size: 40px;
-    font-weight: bold;
-  }
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-item img {
+  width: 100%; /* Увеличаване на изображението да запълни ширината на картата */
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.card-button {
+  align-self: flex-end;
+}

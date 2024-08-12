@@ -24,10 +24,10 @@
     display: flex;
 }
 
-/* #user {
-    display: flex;
-} */
-
 .nav-email{
     margin: 70px;
+}
+
+.btn-outline-success{
+    width: 200px;
 }

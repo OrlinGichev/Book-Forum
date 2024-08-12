@@ -14,12 +14,15 @@ export default function Home() {
   },[]);
 
     return (
-        <div className="card-list">
+      <div className="card-list">
+      <div className="latest-book-container">
           <h2 className="latest-book">Latest Book</h2>
-              {latestBook.map(book => <LatestBook key={book._id}{...book} />)}
-
-              { latestBook.length === 0 && <h3 className="no-books">No books yet ! </h3> }
-        </div>
+      </div>
+      <div className="card-items">
+          {latestBook.map(book => <LatestBook key={book._id}{...book} />)}
+      </div>
+      { latestBook.length === 0 && <h3 className="no-books">No books yet ! </h3> }
+  </div>
         
     )
 }

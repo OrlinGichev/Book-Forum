@@ -1,10 +1,17 @@
+.card-list{
+  display: flex;
+  flex-direction: row !important;
+  margin-top: 35px !important;
+  justify-content: space-between;
+  gap: 25px !important;
+}
 
 .card-item {
   width: 18rem;
   margin-bottom: 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  
 }
 
 .card-item img {
@@ -24,5 +31,5 @@
 }
 
 .card-button {
-  align-self: flex-end;
+  justify-content: center;
 }

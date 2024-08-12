@@ -18,9 +18,9 @@ export default function BookListItem({
           <Card.Img variant="top" src= {img} />
           <Card.Body className="card-body">
             <div>
-              <Card.Title>{title}</Card.Title>
+              <Card.Title>Title: {title}</Card.Title>
               <Card.Text>
-                {genre}
+                Genre: {genre}
               </Card.Text>
             </div>
             <Link to={`/books/${_id}`}>

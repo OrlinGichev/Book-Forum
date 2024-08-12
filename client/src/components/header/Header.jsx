@@ -60,7 +60,7 @@ export default function Header({ onSearch }) {
                         value={searchText}
                         onChange={changeHandler}
                     />
-                    <Button variant="outline-success" type="submit">Search</Button>
+                    <Button variant="outline-success" type="submit">Search by tittle</Button>
                 </Form>
             </Container>
         </Navbar>
