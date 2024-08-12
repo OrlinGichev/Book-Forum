@@ -16,9 +16,9 @@ export default function LatestBook({
         <Card  className="card-item">
         <Card.Img variant="top" src={img} />
         <Card.Body >
-            <Card.Title>{title}</Card.Title>
+            <Card.Title>Title: {title}</Card.Title>
             <Card.Text>
-             {genre}
+             Genre: {genre}
             </Card.Text>
             <Link to={`/books/${_id}`}>
                 <Button variant="primary">Details</Button>

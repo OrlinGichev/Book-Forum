@@ -19,6 +19,7 @@ import {AuthProvider} from "./contexts/authContext";
 import Logout from "./components/logout/Logout";
 import BookEdit from "./components/book-edit/BookEdit";
 import AuthGuard from "./components/guards/AuthGuard";
+import ErrorPage from './components/error-page/ErrorPage';
 
 function App() {
   const [searchBooks, setSearchBooks] = useState([]);
@@ -47,6 +48,7 @@ function App() {
               <Route path="/books/:bookId/edit" element={<BookEdit />} />
               <Route path="/logout" element={<Logout />} />
           </Route>
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
     </AuthProvider>

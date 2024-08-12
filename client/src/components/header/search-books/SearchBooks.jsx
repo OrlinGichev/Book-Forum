@@ -7,9 +7,10 @@ import Button from "react-bootstrap/Button";
 import "./SearchBooks.css";
 
 export default function SearchBooks({ books }) {
-    if (books.length === 0) {
-        return <p>No books found.</p>;
-    }
+
+    // if (books.length === 0) {
+    //     return <p>No books found.</p>;
+    // }
 
     return (
         <div className="search-results">
@@ -21,17 +22,18 @@ export default function SearchBooks({ books }) {
                 <Card key={book._id} className="card-item">
                     <Card.Img variant="top" src={book.img} />
                     <Card.Body >
-                        <Card.Title>{book.title}</Card.Title>
+                        <Card.Title>Title: {book.title}</Card.Title>
                         <Card.Text>
-                            {book.genre}
+                           Genre: {book.genre}
                         </Card.Text>
                         <Link to={`/books/${book._id}`}>
                             <Button variant="primary" className="card-button">Details</Button>
                         </Link>
                     </Card.Body>
                 </Card>
-            ))}
+            ))}            
         </div>
+        { books.length === 0 && <h3 className="no-books">No books found ! </h3> }
     </div>
     
     );

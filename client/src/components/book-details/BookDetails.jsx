@@ -42,8 +42,6 @@ export default function BookDetails() {
   const addCommentHandler = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
-
     const newComment = await commentService.create(bookId, comment);
 
     const commentToAdd = {
