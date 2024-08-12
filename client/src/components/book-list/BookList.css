@@ -8,8 +8,9 @@ h3 {
 }
 
 
-.card-list {
+.book-list {
   display: flex;
+  flex-direction: row ;
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 120px;

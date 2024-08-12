@@ -18,7 +18,7 @@ export default function BookList() {
 
 
   return (
-    <div className="card-list">
+    <div className="book-list">
       
         { books.map(book => (
           <BookListItem key={book._id} {...book}  />

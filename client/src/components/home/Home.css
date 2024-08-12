@@ -1,6 +1,6 @@
 .card-list {
   display: flex;
-  flex-direction: column; /* Центрираме заглавието и книгите в колонна подредба */
+  flex-direction: column !important; /* Центрираме заглавието и картите в колонна подредба */
   align-items: center; /* Центрираме елементите по хоризонтала */
   margin-top: 120px;
 }
@@ -16,7 +16,7 @@
   background-color: rgb(210, 208, 208);
   opacity: 80%;
   font-size: 35px;
-  font-weight: 700px;
+  font-weight: 700;
 }
 
 .card-items {
@@ -24,11 +24,12 @@
   justify-content: center; /* Центриране на картите в средата на реда */
   flex-wrap: wrap; /* Автоматично пренасяне на картите на нов ред, ако няма място */
   gap: 60px; /* Разстояние между картите */
+  margin-bottom: 20px; /* Разстояние под картите, за да се отдели от "No books yet" */
 }
 
 .card-item {
-  width: 18rem;
-  height: 30rem;
+  width: 16rem !important;
+  height: 24rem !important;
   margin-bottom: 20px;
 }
 
@@ -36,4 +37,11 @@
   width: 100%; /* Увеличаване на изображението да запълни ширината на картата */
   height: auto;
   object-fit: cover;
+}
+
+.no-books {
+  margin-top: 20px; /* Разстояние между последния ред на картите и текста "No books yet!" */
+  font-size: 45px;
+  color: gray;
+  opacity: 80%;
 }

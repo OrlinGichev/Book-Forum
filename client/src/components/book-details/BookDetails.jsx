@@ -13,13 +13,13 @@ import AuthContext from "../../contexts/authContext";
 export default function BookDetails() {
 
   const { email, userId, isAuthenticated } = useContext(AuthContext)
-  console.log(`UserId ${userId}`);
+
 
   const navigate = useNavigate();
   const [book, setBook] = useState({});
   const [comments, setComments] = useState([]);
   const { bookId } = useParams();
-  console.log(bookId);
+ 
 
   useEffect(() => {
     bookService.getOne(bookId).then(setBook);
@@ -59,7 +59,7 @@ export default function BookDetails() {
   return (
     <div className="main-container">
       <div className="card-container">
-        <Card className="card-item">
+        <Card className="card-item" id="card-item">
           <Card.Img variant="top" src={book.img} />
           <Card.Body className="card-body">
             <div>
