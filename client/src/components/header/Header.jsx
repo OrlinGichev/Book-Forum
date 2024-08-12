@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -14,6 +14,8 @@ export default function Header({ onSearch }) {
     const { isAuthenticated, email } = useContext(AuthContext);
     const [searchText, setSearchText] = useState('');
 
+    const navigate = useNavigate();
+
     const changeHandler = (e) => {
         setSearchText(e.target.value);
     };
@@ -22,6 +24,7 @@ export default function Header({ onSearch }) {
         e.preventDefault();
         const resultBooks = await bookService.searchTitle(searchText);
         onSearch(resultBooks); // Извикваме функцията onSearch, за да подадем резултатите нагоре към родител
+        navigate('/search');
         setSearchText(""); 
     };
 

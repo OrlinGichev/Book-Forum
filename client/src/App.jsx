@@ -35,7 +35,8 @@ function App() {
       <div id="app">
         <Header onSearch={handleSearch} />
         <Routes>
-          <Route path="/" element={showSearchResults ? <SearchBooks books={searchBooks} /> : <Home />}/>
+          <Route path="/" element={<Home />}/>
+          <Route path="/search" element={<SearchBooks books={searchBooks}/>} />
           <Route path="/books" element={<BookList />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
