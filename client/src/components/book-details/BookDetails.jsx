@@ -65,7 +65,7 @@ export default function BookDetails() {
     if (likes.userLiked) {
       await likesService.unlikeBook(bookId, userId);
       setLikes(state => ({ count: state.count - 1, userLiked: false }));
-    } else {
+    } else {      
       await likesService.likeBook(bookId, userId);
       setLikes(state => ({ count: state.count + 1, userLiked: true }));
     }
@@ -81,6 +81,16 @@ export default function BookDetails() {
               <Card.Title>{book.title}</Card.Title>
               <Card.Text>{book.author}</Card.Text>
               <Card.Text>{book.genre}</Card.Text>
+              {isAuthenticated && 
+                <div className="likes">
+                <span>{likes.count} Likes</span>
+                {isAuthenticated && (
+                  <Button onClick={likeButtonClickHandler}>
+                    {likes.userLiked ? 'Unlike' : 'Like'}
+                  </Button>
+                )}
+              </div>
+            }
               <Card.Text>{book.description}</Card.Text>
             </div>
 
@@ -95,16 +105,7 @@ export default function BookDetails() {
                 </div>
             }
 
-            {isAuthenticated && 
-                <div className="likes">
-                <span>{likes.count} Likes</span>
-                {isAuthenticated && (
-                  <Button onClick={likeButtonClickHandler}>
-                    {likes.userLiked ? 'Unlike' : 'Like'}
-                  </Button>
-                )}
-              </div>
-            }
+            
           </Card.Body>
         </Card>
       </div>
