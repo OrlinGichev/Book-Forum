@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import "./Login.css";
 import useForm from "../../hooks/useForm";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AuthContext from "../../contexts/authContext";
 
 const LoginFormKeys = {
@@ -13,8 +13,18 @@ const LoginFormKeys = {
 export default function Login() {
 
   const {loginSubmitHandler} = useContext(AuthContext);
+  const [error, setError] = useState(null);
 
-  const { values, onChange, onSubmit } = useForm(loginSubmitHandler,{
+  const { values, onChange, onSubmit } = useForm(async () => {
+    try {
+      await loginSubmitHandler(values);
+    
+      setError(null);
+    } catch (err) {
+     
+      setError(err.message);
+    }
+  }, {
     [LoginFormKeys.Email]: '',
     [LoginFormKeys.Password]: '',
   });
@@ -23,6 +33,9 @@ export default function Login() {
     <div className="login-container">
       <form className="login-form" onSubmit={onSubmit}>
         <h2 className="text-center mb-4">Login</h2>
+
+        {error && <div className="alert alert-danger">{error}</div>}
+
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
             Email address

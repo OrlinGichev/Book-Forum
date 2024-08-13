@@ -16,6 +16,8 @@ export const AuthProvider = ({
   const [auth, setAuth] = useLocalStorageState('auth',{})
 
   const loginSubmitHandler = async (values) => {
+    try {
+      
       const result = await authService.login(values.email, values.password);
 
       setAuth(result);
@@ -23,7 +25,12 @@ export const AuthProvider = ({
       localStorage.setItem('accessToken', result.accessToken);
 
       navigate('/');
-  };
+
+    } catch (err) {
+
+      throw new Error("Invalid email or password");
+  }
+}
 
   const registerSubmitHandler = async (values) => {
     try {
@@ -36,7 +43,7 @@ export const AuthProvider = ({
       navigate('/');
 
     }catch (err) {
-      console.error("Registration failed", err);
+      throw new Error("Registration failed", err);
     }
   };
 
