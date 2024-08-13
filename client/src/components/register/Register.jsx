@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Register.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AuthContext from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
 
@@ -20,9 +20,42 @@ export default function Register() {
     [RegisterFormKeys.ConfirmPassword]: '',
   });
 
+  const [errors, setErrors] = useState({});
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validateForm = () => {
+    let errors = {};
+
+    // Валидация на email
+    if (!validateEmail(values[RegisterFormKeys.Email])) {
+      errors.email = "Please enter a valid email address.";
+    }
+
+    // Валидация за съвпадение на паролите
+    if (values[RegisterFormKeys.Password] !== values[RegisterFormKeys.ConfirmPassword]) {
+      errors.password = "Passwords do not match.";
+    }
+
+    setErrors(errors);
+
+    // Връща true, ако няма грешки
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (validateForm()) {
+      onSubmit();
+    }
+  };
+
   return (
     <div className="register-container">
-      <form className="register-form" onSubmit={onSubmit}>
+      <form className="register-form" onSubmit={handleSubmit}>
         <h2 className="text-center mb-4">Register</h2>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
@@ -38,6 +71,7 @@ export default function Register() {
             placeholder="Enter your email"
             required
           />
+          {errors.email && <div className="text-danger">{errors.email}</div>}
         </div>
         {/* <div className="mb-3">
           <label htmlFor="username" className="form-label">
@@ -83,6 +117,7 @@ export default function Register() {
             placeholder="Confirm your password"
             required
           />
+          {errors.password && <div className="text-danger">{errors.password}</div>}
         </div>
         <button type="submit" className="btn btn-primary w-100">
           Register
