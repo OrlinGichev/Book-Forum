@@ -49,7 +49,7 @@ export default function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm()) {
-      onSubmit();
+      onSubmit(event);
     }
   };
 

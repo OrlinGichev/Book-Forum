@@ -16,9 +16,16 @@ export const AuthProvider = ({
   const [auth, setAuth] = useLocalStorageState('auth',{})
 
   const loginSubmitHandler = async (values) => {
+
+      const cleanedValues = {
+        email : values.email.trim(),
+        password : values.password.trim(),
+      };
+
+
     try {
       
-      const result = await authService.login(values.email, values.password);
+      const result = await authService.login(cleanedValues.email, cleanedValues.password);
 
       setAuth(result);
 
@@ -33,8 +40,14 @@ export const AuthProvider = ({
 }
 
   const registerSubmitHandler = async (values) => {
+
+    const cleanedValues = {
+      email : values.email.trim(),
+      password : values.password.trim(),
+    };
+
     try {
-      const result = await authService.register(values.email,values.password);
+      const result = await authService.register(cleanedValues.email,cleanedValues.password);
 
       setAuth(result);
   
