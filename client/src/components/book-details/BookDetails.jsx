@@ -5,10 +5,10 @@ import Card from "react-bootstrap/Card";
 
 import * as bookService from "../../services/bookService";
 import * as commentService from "../../services/commentService";
-import * as likesService from "../../services/likesService";
+
 
 import "./BookDetails.css";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import AuthContext from "../../contexts/authContext";
 
 export default function BookDetails() {
@@ -20,19 +20,13 @@ export default function BookDetails() {
   const [book, setBook] = useState({});
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState('');
-  const [likes, setLikes] = useState({ count: 0, userLiked: false });
   const { bookId } = useParams();
  
 
-  useEffect(() => {
+
     bookService.getOne(bookId).then(setBook);
    
-    likesService.getLikes(bookId).then(likesData => {
-      const userLiked = likesData.some(like => like.userIds.includes(userId));
-      const count = likesData.length > 0 ? likesData[0].userIds.length : 0;
-      setLikes({ count, userLiked });
-    });
-  }, [bookId, userId]);
+   
 
 
   const deleteButtonClickHandler = async () => {
@@ -61,16 +55,6 @@ export default function BookDetails() {
     setComment('');
   };
 
-  const likeButtonClickHandler = async () => {
-    if (likes.userLiked) {
-      await likesService.unlikeBook(bookId, userId);
-      setLikes(state => ({ count: state.count - 1, userLiked: false }));
-    } else {      
-      await likesService.likeBook(bookId, userId);
-      setLikes(state => ({ count: state.count + 1, userLiked: true }));
-    }
-  };
-
   return (
     <div className="main-container">      
       <div className="card-container">
@@ -80,17 +64,7 @@ export default function BookDetails() {
             <div>
               <Card.Title>{book.title}</Card.Title>
               <Card.Text>{book.author}</Card.Text>
-              <Card.Text>{book.genre}</Card.Text>
-              {isAuthenticated && 
-                <div className="likes">
-                <span>{likes.count} Likes</span>
-                {isAuthenticated && (
-                  <Button onClick={likeButtonClickHandler}>
-                    {likes.userLiked ? 'Unlike' : 'Like'}
-                  </Button>
-                )}
-              </div>
-            }
+              <Card.Text>{book.genre}</Card.Text>                            
               <Card.Text>{book.description}</Card.Text>
             </div>
 
