@@ -30,7 +30,7 @@
 .btn-container{
   display: flex;
   flex-direction: row;
-  gap:40px;
+  gap:25px;
   }
   
   .btn-details{
@@ -53,7 +53,7 @@
     }
     
     .leftContainer {
-      width: 60%;
+      width: 70%;
       height: 100%;
       background-color: #0060ff;
       display: flex;
@@ -68,7 +68,7 @@
     }
     
     .likeCount {
-      width: 40%;
+      width: 30%;
       height: 100%;
       display: flex;
       align-items: center;
