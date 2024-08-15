@@ -34,13 +34,13 @@
 }
 
 .card-item img {
-  width: 100%; /* Увеличаване на изображението да запълни ширината на картата */
+  width: 100%; 
   height: auto;
   object-fit: cover;
 }
 
 .no-books {
-  margin-top: 20px; /* Разстояние между последния ред на картите и текста "No books yet!" */
+  margin-top: 20px; 
   font-size: 45px;
   color: gray;
   opacity: 80%;

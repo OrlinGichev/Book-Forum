@@ -2,14 +2,14 @@
   margin-top: 60px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Центриране на заглавието и книгите в средата на контейнера */
+  align-items: center; 
  
 }
 
 .search-heading-container {
-  width: 50%; /* Размер на контейнера с надписа */
-  text-align: center; /* Центриране на текста вътре в контейнера */
-  margin-bottom: 25px; /* Разстояние под заглавието */
+  width: 50%; 
+  text-align: center; 
+  margin-bottom: 25px; 
 
 }
 
@@ -23,9 +23,9 @@
 
 .card-list {
   display: flex;
-  justify-content: center; /* Центриране на картите в средата на реда */
-  flex-wrap: wrap; /* Автоматично пренасяне на картите на нов ред, ако няма място */
-  gap: 20px; /* Разстояние между картите */
+  justify-content: center; 
+  flex-wrap: wrap; 
+  gap: 20px; 
   margin-top: 10px;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .card-item img {
-  width: 100%; /* Увеличаване на изображението да запълни ширината на картата */
+  width: 100%; 
   height: 200px;
   object-fit: cover;
   display: block;

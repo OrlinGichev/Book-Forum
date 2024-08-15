@@ -27,7 +27,7 @@ function App() {
 
   const handleSearch = (books) => {
       setSearchBooks(books);
-      setShowSearchResults(true); // Показваме резултатите от търсенето
+      setShowSearchResults(true); 
   };
   
 

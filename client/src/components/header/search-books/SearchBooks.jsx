@@ -8,10 +8,7 @@ import "./SearchBooks.css";
 
 export default function SearchBooks({ books }) {
 
-    // if (books.length === 0) {
-    //     return <p>No books found.</p>;
-    // }
-
+    
     return (
         <div className="search-results">
         <div className="search-heading-container">
