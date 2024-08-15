@@ -17,8 +17,31 @@ This project uses [React](https://react.dev/) with the [Vite](https://vitejs.dev
 ## Installation and Usage
 
 1. **Clone the Repository:**
+
    
    There are two folders (client) and ([server](https://github.com/softuni-practice-server/softuni-practice-server/tree/master))<br />
    
    ```bash
    git clone https://github.com/OrlinGichev/Book-Forum.git
+   
+2. **Start app :**
+
+   Navigate into the project directory:
+   Navigate to the client directory and install the dependencies:
+   
+   ```bash
+   cd client
+   npm install
+   ````
+   **Start the Client**
+
+   ```bash
+   npm run dev
+   ````
+   **Start the Server**
+   ```bash
+   cd server
+   node ./server.js
+   ````
+   
+   
