@@ -59,7 +59,23 @@ The project is organized into two main parts:
 
 - **Create book:** Logged-in users can add new books to the forum by providing details such as title, author, genre, and a short description.
 - **Commenting System:** Authenticated users can participate in discussions by commenting on books, providing reviews.
-- **Details page:** Users can update book details only for book, that they upload.
+- **Details page:** Users can update or delete books details only for book, that they upload.
+
+## Default Users
+
+To help you get started quickly, the project includes two default users with the following credentials:
+
+### User 1: Peter
+
+- **Email:** peter@abv.bg
+- **Password:** 123456
+
+### User 2: George
+
+- **Email:** george@abv.bg
+- **Password:** 123456
+
+You can use these accounts to log in and explore the private parts of the application, such as  book upload, and commenting system.
 
 
 
