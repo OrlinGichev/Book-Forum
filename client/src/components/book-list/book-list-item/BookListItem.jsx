@@ -11,25 +11,51 @@ import "./BookListItem.css";
 
 export default function BookListItem({ title, img, genre, _id }) {
   const { userId, isAuthenticated } = useContext(AuthContext);
-  const [likes, setLikes] = useState({ count: 0, userLiked: false });
+  const [likes, setLikes] = useState({ count: 0, userLiked: false, likeId: null });
 
   useEffect(() => {
-    likesService.getLikes(_id).then((likesData) => {
-      const userLiked = likesData.some((like) => like.userIds.includes(userId));
-      const count = likesData.length > 0 ? likesData[0].userIds.length : 0;
-      setLikes({ count, userLiked });
-    });
+    const fetchLikesData = async () => {
+
+      try {
+        const likesCount  = await likesService.getLikesCount(_id);
+        const { hasLiked, likedId } = await likesService.userHasLiked(_id, userId);
+  
+        setLikes({
+          count: likesCount,
+          userLiked: hasLiked,
+          likedId: likedId,
+        });
+      } catch (error) {
+        console.error('Error fetching likes data:',error);
+      }
+    };
+
+    fetchLikesData();
   }, [_id, userId]);
 
   const likeButtonClickHandler = async () => {
-    if (likes.userLiked) {
-      await likesService.unlikeBook(_id, userId);
-      setLikes((state) => ({ count: state.count - 1, userLiked: false }));
+
+    try {
+      if (!likes.userLiked) {
+        await likesService.likeBook(_id, userId);
+       
     } else {
-      await likesService.likeBook(_id, userId);
-      setLikes((state) => ({ count: state.count + 1, userLiked: true }));
+        await likesService.unlikeBook(likes.likeId);
     }
-  };
+  
+    const updatedLikesCount  = await likesService.getLikesCount(_id);
+    const { hasLiked: updatedUserLiked, likeId: updatedLikeId } = await likesService.userHasLiked(_id, userId);
+    
+    setLikes({
+        count: updatedLikesCount,
+        userLiked: updatedUserLiked,
+        likeId: updatedLikeId,
+    });
+
+    } catch (error) {
+      console.error('Error updating likes:', error);
+    }
+};
 
   return (
     <div className="card-items">
