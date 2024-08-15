@@ -51,7 +51,8 @@ The project is organized into two main parts:
 ### Public Part
 
 - **Home:** This is the main landing page accessible to all users. It showcases last 3 books  and allows visitors to view book details with descriptions and comments without needing to log in. User can not to make changes.
-- **All boocks:** Displays a list of books with basic details, allowing all users to browse and discover new titles.
+- **All books:** Displays a list of books with basic details, allowing all users to browse and discover new titles.
+- **Details:** Displays  details with comments for currwnt book.
 - **Search:** User can search some book by tittle.
 - **Sign Up/Login:** Users can create an account or log in to access additional features, such as posting comments or adding books.
 
