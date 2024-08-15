@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import "../Home.css";
-import "./LatestBook.css";
 
 export default function LatestBook({
     _id,

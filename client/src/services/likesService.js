@@ -12,7 +12,7 @@ export const getLikes = async (bookId) => {
     try {
         const likes = await request.get(url);
         if (Array.isArray(likes) && likes.length === 0) {
-            // Ако няма резултати, върнете празен масив
+         
             return [];
         }
         return likes;
@@ -31,17 +31,18 @@ export const likeBook = async (bookId, userId) => {
 
     const existingLikes = await getLikes(bookId);
     if (!existingLikes || existingLikes.length === 0) {
-        // Създаване на нов запис за харесване
+    
         return await request.post(baseUrl, likeData);
     }else {
         const existingLike = existingLikes[0];
 
-        // Проверка дали потребителят вече е харесал книгата
+        
         if (!existingLike.userIds.includes(userId)) {
             existingLike.userIds.push(userId);
-            return await request.put(`${baseUrl}/${existingLike.id}`, existingLike);
+           
+            return await request.put(`${baseUrl}/${existingLike._id}`, existingLike);
         } else {
-            // Потребителят вече е харесал книгата, няма нужда от допълнителна операция
+       
             return existingLike;
         }
     }

@@ -8,7 +8,7 @@ import * as commentService from "../../services/commentService";
 
 
 import "./BookDetails.css";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../contexts/authContext";
 
 export default function BookDetails() {
@@ -24,9 +24,11 @@ export default function BookDetails() {
  
 
 
+  useEffect(() => {
     bookService.getOne(bookId).then(setBook);
-   
-   
+    
+    commentService.getAll(bookId).then(setComments);
+  }, [bookId]);
 
 
   const deleteButtonClickHandler = async () => {
